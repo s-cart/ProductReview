@@ -3,7 +3,7 @@
 namespace App\Plugins\Cms\ProductReview\Controllers;
 
 use App\Plugins\Cms\ProductReview\AppConfig;
-use App\Http\Controllers\RootFrontController;
+use SCart\Core\Front\Controllers\RootFrontController;
 use App\Plugins\Cms\ProductReview\Models\PluginModel;
 use Validator;
 class FrontController extends RootFrontController

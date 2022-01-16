@@ -3,7 +3,7 @@
 
 namespace App\Plugins\Cms\ProductReview\Admin;
 
-use App\Http\Controllers\RootAdminController;
+use SCart\Core\Admin\Controllers\RootAdminController;
 use App\Plugins\Cms\ProductReview\AppConfig;
 use SCart\Core\Admin\Models\AdminProduct;
 use App\Plugins\Cms\ProductReview\Admin\Models\AdminProductReview;
