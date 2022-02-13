@@ -40,6 +40,7 @@ class FrontController extends RootFrontController
         }
 
         $dataInsert = [
+            'id' => sc_uuid(),
             'product_id' => $data['product_id'],
             'customer_id' => auth()->user()->id,
             'name' => auth()->user()->name,

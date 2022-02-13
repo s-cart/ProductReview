@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PluginModel extends Model
 {
+    use \SCart\Core\Front\Models\UuidTrait;
+
     public $table = SC_DB_PREFIX.'product_review';
     protected $connection = SC_CONNECTION;
     protected $guarded    = [];
@@ -52,9 +54,9 @@ class PluginModel extends Model
         $this->uninstall();
 
         Schema::create($this->table, function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('product_id');
-            $table->integer('customer_id');
+            $table->uuid('id')->primary();
+            $table->uuid('product_id');
+            $table->uuid('customer_id');
             $table->string('name', 100);
             $table->integer('point');
             $table->string('comment', 300);
@@ -80,6 +82,22 @@ class PluginModel extends Model
             self::$pointData[$pId] = empty($pointData)?'':$pointData;
         }
         return self::$pointData[$pId];
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+        // before delete() method call this
+        static::deleting(function ($model) {
+            //Delete model descrition
+        });
+
+        //Uuid
+        static::creating(function ($model) {
+            if (empty($model->{$model->getKeyName()})) {
+                $model->{$model->getKeyName()} = sc_generate_id($type = 'product_review');
+            }
+        });
     }
 
 }

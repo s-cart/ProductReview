@@ -37,7 +37,6 @@ class AdminController extends RootAdminController
         ];
 
         $listTh = [
-            'id' => trans($this->plugin->pathPlugin.'::lang.id'),
             'product' => trans($this->plugin->pathPlugin.'::lang.product'),
             'customer' => trans($this->plugin->pathPlugin.'::lang.customer'),
             'point' => trans($this->plugin->pathPlugin.'::lang.point'),
@@ -59,8 +58,7 @@ class AdminController extends RootAdminController
 
         $dataTr = [];
         foreach ($dataTmp as $key => $row) {
-            $dataTr[] = [
-                'id' => $row['id'],
+            $dataTr[$row['id']] = [
                 'product' => '<a href="'.AdminProduct::find($row->product_id)->getUrl().'" target=_new>'.$row->product_id.'</a>',
                 'customer' => '<a href="'.sc_route_admin('admin_customer.edit', ['id' =>$row->customer_id]).'" target=_new>'.$row->name.'</a>',
                 'point' => $row['point'],
