@@ -7,6 +7,6 @@
     "configGroup": "Plugins",
     "configCode": "Cms",
     "configKey": "ProductReview",
-    "version": "6.0",
-    "scartVersion": []
+    "version": "6.1",
+    "scartVersion": "7.1|7.2"
 }
