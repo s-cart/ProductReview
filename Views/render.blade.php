@@ -12,10 +12,10 @@
                         <div class="r-name"><b>{{ $point->name }}</b> 
                            <span class="review-star">({{ $point->created_at }}
                               @for ($i = 1;  $i <= $point->point; $i++)
-                                 <i class="fa fa-star voted" aria-hidden="true"></i>
+                              <img src="{{ sc_file($pathPlugin.'/images/star.png')}}" alt="Star">
                               @endfor
                               @for ($k = 1;  $k <= (5- $point->point); $k++)
-                                 <i class="fa fa-star-o" aria-hidden="true"></i>
+                              <img src="{{ sc_file($pathPlugin.'/images/star-gray.png')}}" alt="Star">
                               @endfor
                               )</span>
                               @if (auth()->user() && $point->customer_id == auth()->user()->id)

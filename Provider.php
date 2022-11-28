@@ -40,4 +40,13 @@
                     return $pointData;
                 }
             }
+
+            /**
+             * Function get path plugin rating
+             */
+            if (!function_exists('sc_rating_get_plugin_path')) {
+                function sc_rating_get_plugin_path() {
+                    return (new App\Plugins\Cms\ProductReview\AppConfig)->pathPlugin;
+                }
+            }
     }
